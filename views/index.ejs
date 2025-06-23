@@ -1,0 +1,41 @@
+<%- include('partials/header.ejs')%>
+<body>
+  <div class="container">
+    <%-include('partials/sidebar.ejs')%>
+
+    <main class="main-content">
+  <div class="post-grid">
+    <% if (locals.postArr && postArr.length > 0) { %>
+      <% postArr.forEach(element => { %>
+        <div class="post">
+          <div class="dropdown">
+            <button class="dropdown-toggle">⋮</button>
+            <div class="dropdown-menu">
+              <form action="/edit" method="POST" style="display: inline;">
+                <button type="submit" value=<%= element %>>Edit</button>
+                
+              </form>
+              <form action="/delete" method="POST" style="display: inline;">
+                <button type="submit">Delete</button>
+              </form>
+            </div>
+          </div>
+          <p><%= element %></p>
+          <p>Date</p>
+        </div>
+      <% }) %>
+    <% } else { %>
+      <h2>No Post Yet</h2>
+      <h2>Start Posting</h2>
+    <% } %>
+  </div>
+</main>
+
+
+    <form action="/post" method="POST">
+  <button class="add-post" type="submit">+</button>
+</form>
+  </div>
+  <%- include('partials/footer.ejs')  %>
+</body>
+</html>

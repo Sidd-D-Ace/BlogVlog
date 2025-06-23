@@ -1,0 +1,164 @@
+/* post.css */
+.post-form {
+  max-width: 600px;
+  margin: 50px auto;
+  background-color: #FFF2EB;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.post-form label {
+  font-weight: bold;
+  color: #333;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.post-form input[type="text"],
+.post-form textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  background-color: #FFD6BA;
+  margin-bottom: 20px;
+  resize: vertical;
+  color: #333;
+  font-size: 1rem;
+}
+
+.post-form textarea::placeholder {
+  color: #666;
+}
+
+.post-form .button-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.post-form button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  background-color: #03A791;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.post-form button.cancel {
+  background-color: #F1BA88;
+  color: #000;
+}
+
+.post-form button:hover {
+  background-color: #026F5B;
+}
+
+/* Post display styles */
+.post {
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #333;
+  position: relative;
+  background-color: #FFD6BA;
+  padding-top: 40px;
+}
+
+.post-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+  word-wrap: break-word;
+}
+
+.post-date {
+  font-size: 0.9rem;
+  color: #555;
+  align-self: flex-end;
+}
+
+/* Dynamic post background coloring */
+.post:nth-child(6n+1) {
+  background: #F1BA88;
+}
+.post:nth-child(6n+2) {
+  background: #81E7AF;
+}
+.post:nth-child(6n+3) {
+  background: #03A791;
+}
+.post:nth-child(6n+4) {
+  background: #81E7AF;
+}
+.post:nth-child(6n+5) {
+  background: #F1BA88;
+}
+.post:nth-child(6n+6) {
+  background: #03A791;
+}
+
+/* Dropdown menu inside post */
+.post .dropdown {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.post .dropdown-toggle {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #333;
+}
+
+.post .dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 25px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  z-index: 1000;
+  padding: 5px 0;
+  min-width: 100px;
+}
+
+.post .dropdown-menu form {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.post .dropdown-menu button {
+  display: block;
+  width: 100%;
+  padding: 8px 12px;
+  background-color: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: #333;
+  transition: background-color 0.2s;
+}
+
+.post .dropdown-menu button:hover {
+  background-color: #f0f0f0;
+  color: #000;
+  font-weight: 500;
+}
+
+.post .dropdown:hover .dropdown-menu {
+  display: block;
+}
