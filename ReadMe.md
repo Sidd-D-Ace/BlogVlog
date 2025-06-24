@@ -6,6 +6,6 @@ Tech used : HTML, CSS, JavaScript, NodeJs, ExpressJs, Ejs, and some Frameworks.
 
 depenencies are mentioned in Pakage.json
 
-Some Fucntionalities are missing such as Edit, Deleting a Blog 
+Some Fucntionalities are missing such as Deleting a Blog and Viewing
 
 Will Fix Later:)
