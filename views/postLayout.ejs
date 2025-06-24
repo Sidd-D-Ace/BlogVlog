@@ -3,13 +3,13 @@
     <%- include('partials/sidebar') %>
 
     <main class="main-content">
-      <form class="post-form" action="/submit-post" method="POST">
+      <form class="post-form" action="<%= (locals.name && locals.message) ? '/edit-post' : '/submit-post' %>" method="POST">
         
         <% if(locals.name && locals.message){ %>
             <label for="name">Name:</label>
-            <input type="text" id="name" name="name" value="<%= name %>">
+            <input type="text" id="name" name="editname" value="<%= name %>">
             <label for="message">Free your Mind....</label>
-        <textarea id="message" name="message" rows="5" placeholder="Type here...." required></textarea>
+        <textarea id="message" name="editmessage" rows="5" placeholder="Type here...." required><%= message %></textarea>
             <% } else{%>
             <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>

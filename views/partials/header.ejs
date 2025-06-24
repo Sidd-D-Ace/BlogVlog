@@ -20,8 +20,13 @@
   <title>BlogVlog Dashboard</title>
   <link rel="stylesheet" href="styles/style.css">
   <link rel="stylesheet" href="/styles/post.css">
+  <% if (locals.page === 'view-post') { %>
+  <link rel="stylesheet" href="/css/view-post.css">
+<% } %>
+
+
 </head>
-<header class="topbar">
-  <div class="profile-pic"></div>
-  <h1>BlogVlog</h1>
-</header>
+<div class="topbar">
+      <h1>BlogVlog</h1>
+      <div class="profile-pic"></div>
+    </div>

@@ -1,4 +1,4 @@
-/* dashboard.css */
+/* Reset and base styles */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,24 +6,39 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body, html {
+html, body {
   height: 100%;
-  background: #E9F5BE; /* Light green background */
-  display: flex;
-  flex-direction: column;
+  background: #E9F5BE;
 }
 
+/* Layout container */
 .container {
   display: grid;
+  height: calc(100vh - 60px); /* subtract topbar height */
   grid-template-columns: 200px 1fr;
-  grid-template-rows: 60px 1fr;
-  flex: 1;
+  grid-template-rows: 1fr; /* only 1 row now */
   grid-template-areas: 
-    "sidebar topbar"
     "sidebar main";
 }
 
-/* Sidebar */
+
+.topbar {
+  grid-area: topbar;
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.main-content {
+  grid-area: main;
+  padding: 30px;
+  overflow-y: auto;
+  background-color: #E9F5BE;
+}
+
+
+/* Sidebar styles */
 .sidebar {
   grid-area: sidebar;
   background: #F1BA88;
@@ -32,8 +47,6 @@ body, html {
   flex-direction: column;
   align-items: center;
   padding-top: 20px;
-  width: 200px;
-  min-height: 100vh;
 }
 
 .sidebar nav a {
@@ -43,16 +56,14 @@ body, html {
   text-decoration: none;
 }
 
-
 .sidebar nav a:hover {
-  color: #03A791; /* Strong teal accent */
+  color: #03A791;
 }
 
-/* Topbar */
+/* Topbar styles */
 .topbar {
-  grid-column: 1 / -1;
-  grid-row: 1;
-  background: #03A791; /* Dark teal */
+  grid-area: topbar;
+  background: #03A791;
   color: #E9F5BE;
   display: flex;
   align-items: center;
@@ -66,7 +77,7 @@ body, html {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #81E7AF; /* Mint green */
+  background: #81E7AF;
 }
 
 .topbar h1 {
@@ -81,54 +92,31 @@ body, html {
   grid-area: main;
   padding: 30px;
   overflow-y: auto;
-  position: relative;
+  background-color: #E9F5BE;
 }
 
 /* Post grid */
 .post-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  gap: 20px;
+  gap: 10px;
+  min-height: 100px;
+  align-items: center;
+  justify-items: center;
 }
 
-/* Post colors in sequence */
-/* .post:nth-child(1) {
-  background: #F1BA88;
-}
-.post:nth-child(2) {
-  background: #81E7AF;
-}
-.post:nth-child(3) {
-  background: #03A791;
-}
-.post:nth-child(4) {
-  background: #81E7AF;
-}
-.post:nth-child(5) {
-  background: #F1BA88;
-}
-.post:nth-child(6) {
-  background: #03A791;
-} */
-
-.post {
-  width: 100%;
-  padding-top: 100%;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-/* Fallback text if no posts */
+/* No-post fallback */
 .no-posts,
 .post-grid h2 {
-  color: #607D3B; /* Light but darker than background */
+  color: #607D3B;
   font-size: 1.5rem;
   text-align: center;
   grid-column: 1 / -1;
-  margin-top: 20px;
+  margin-top:   40px;
 }
 
-/* Floating Add (+) button */
+
+/* Floating Add button */
 form[action="/post"] {
   position: fixed;
   bottom: 30px;
@@ -153,9 +141,9 @@ form[action="/post"] {
   background: #033B2E;
 }
 
-/* Footer */
+/* Footer styles */
 footer {
-  background-color: #03A791; /* Match topbar */
+  background-color: #03A791;
   color: #033B2E;
   text-align: center;
   padding: 20px;

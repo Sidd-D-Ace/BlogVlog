@@ -1,41 +1,43 @@
-<%- include('partials/header.ejs')%>
+<%- include('partials/header.ejs') %>
 <body>
   <div class="container">
-    <%-include('partials/sidebar.ejs')%>
-
+    <!-- Topbar should be first in grid layout -->
+    <%- include('partials/sidebar.ejs') %>
     <main class="main-content">
-  <div class="post-grid">
-    <% if (locals.postArr && postArr.length > 0) { %>
-      <% postArr.forEach(element => { %>
-        <div class="post">
-          <div class="dropdown">
-            <button class="dropdown-toggle">⋮</button>
-            <div class="dropdown-menu">
-              <form action="/edit" method="POST" style="display: inline;">
-                <button type="submit" value=<%= element %>>Edit</button>
-                
-              </form>
-              <form action="/delete" method="POST" style="display: inline;">
-                <button type="submit">Delete</button>
-              </form>
+      <div class="post-grid">
+        <% if (locals.postArr && postArr.length > 0) { %>
+          <% postArr.forEach(element => { %>
+            <div class="post">
+              <div class="dropdown">
+                <button class="dropdown-toggle">⋮</button>
+                <div class="dropdown-menu">
+                  <form action="/edit" method="POST">
+                    <input type="hidden" name="element" value="<%= element %>">
+                    <button type="submit">Edit</button>
+                  </form>
+                  <form action="/delete" method="POST">
+                    <button type="submit">Delete</button>
+                  </form>
+                </div>
+              </div>
+              <a href="/view-post" class="post-link">
+                <p><%= element %></p>
+                <p>Date</p>
+              </a>
             </div>
-          </div>
-          <p><%= element %></p>
-          <p>Date</p>
-        </div>
-      <% }) %>
-    <% } else { %>
-      <h2>No Post Yet</h2>
-      <h2>Start Posting</h2>
-    <% } %>
-  </div>
-</main>
-
+          <% }) %>
+        <% } else { %>
+          <h2>No Post Yet</h2>
+          <h2>Start Posting</h2>
+        <% } %>
+      </div>
+    </main>
 
     <form action="/post" method="POST">
-  <button class="add-post" type="submit">+</button>
-</form>
+      <button class="add-post" type="submit">+</button>
+    </form>
   </div>
-  <%- include('partials/footer.ejs')  %>
+
+  <%- include('partials/footer.ejs') %>
 </body>
 </html>
