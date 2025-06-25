@@ -5,12 +5,14 @@
 
     <main class="main-content">
       <div class="view-post-container">
-        <h1 class="view-post-title">Name</h1>
-        <p class="view-post-meta">Date</p>
+        <h1 class="view-post-title"><%= name %></h1>
         <div class="view-post-body">
-          <p>Message</p>
+          <p><%= message %></p>
         </div>
       </div>
+      <form action="/" method="GET" >
+        <button type="submit" class="Goback">Go Back</button>
+      </form>
     </main>
   </div>
   <%- include('partials/footer.ejs') %>

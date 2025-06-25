@@ -8,6 +8,22 @@
     "sidebar main";
 }
 
+.view-post-page .Goback{
+  background-color: #007BFF; /* Bootstrap primary blue */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 100px;
+}
+
+.view-post-page .Goback:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
 .view-post-page .sidebar {
   grid-area: sidebar;
   background: #F1BA88;
@@ -92,4 +108,22 @@
 .view-post-page .view-post-actions button:hover,
 .view-post-page .view-post-actions a:hover {
   background-color: #026F5B;
+}
+
+
+/* This css i noe applying */
+.view-post-page .Goback{
+  background-color: #007BFF; /* Bootstrap primary blue */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 100px;
+}
+
+.view-post-page .Goback:hover {
+  background-color: #0056b3; /* Darker blue on hover */
 }

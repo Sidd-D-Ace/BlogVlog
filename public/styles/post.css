@@ -1,3 +1,7 @@
+.a{
+  color: inherit;
+}
+
 /* post.css */
 .post-form {
   max-width: 600px;
@@ -161,4 +165,19 @@
 
 .post .dropdown:hover .dropdown-menu {
   display: block;
+}
+
+.post-link button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.post-link button:hover {
+  color: darkblue;
 }

@@ -6,6 +6,8 @@ Tech used : HTML, CSS, JavaScript, NodeJs, ExpressJs, Ejs, and some Frameworks.
 
 depenencies are mentioned in Pakage.json
 
-Some Fucntionalities are missing such as Deleting a Blog and Viewing
+Some Fucntionalities are missing such Profile and sidebar element pages.
+
+issue: Go-back button in view-post.ejs is not showing its css.
 
 Will Fix Later:)

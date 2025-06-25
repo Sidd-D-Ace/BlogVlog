@@ -16,13 +16,17 @@
                     <button type="submit">Edit</button>
                   </form>
                   <form action="/delete" method="POST">
+                    <input type="hidden" name="element" value="<%= element %>">
                     <button type="submit">Delete</button>
                   </form>
                 </div>
               </div>
-              <a href="/view-post" class="post-link">
-                <p><%= element %></p>
-                <p>Date</p>
+              <!-- <a href="/view-post" class="post-link"> -->
+                <form action="/view-post" method="POST" class="post-link">
+                    <input type="hidden" name="element" value="<%= element %>">
+                    <button type="submit"><%= element %></button>
+                  </form>
+                <!-- <p><%= element %></p> -->
               </a>
             </div>
           <% }) %>

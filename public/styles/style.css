@@ -11,6 +11,10 @@ html, body {
   background: #E9F5BE;
 }
 
+a{
+  color: inherit;
+}
+
 /* Layout container */
 .container {
   display: grid;

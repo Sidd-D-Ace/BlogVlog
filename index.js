@@ -24,14 +24,12 @@ app.post('/post',(req,res)=>{
 
 // renders the post form page but with selected post content
 app.post('/edit',(req,res)=>{
-    console.log(`Name: ${req.body['element']}`);
     let editPostName=req.body['element'];          //retrive the name of the post
     let editPostmessage;
     fs.readFile(__dirname+'/PostsFile/'+editPostName+'post.txt','utf-8',(err,data)=>{
         if (err) throw err;
         console.log(`Successfully Read ${editPostName} Content`);
         editPostmessage=data;
-        console.log(`Data in data : ${data}`);
         res.render('postLayout.ejs',{name:editPostName, message:editPostmessage});   //renders the page here becoz readFile func does store the data outside of the function
     });
 })
@@ -60,9 +58,25 @@ app.post('/edit-post',(req,res)=>{
     res.redirect('/');
 })
 
+
+app.post('/delete',(req,res)=>{
+    let deletePostName=req.body['element']; 
+    let postIdx=postArr.indexOf(deletePostName);
+    postArr.splice(postIdx,1);
+    fs.unlink(`PostsFile/${deletePostName}post.txt`,(err)=>{
+        if (err) throw err;
+        console.log(`${deletePostName} Deleted Successfully`);
+    })
+    res.redirect('/');
+})
+
 //renders the view post page 
-app.get('/view-post',(req,res)=>{
-    res.render('view-post.ejs');
+app.post('/view-post',(req,res)=>{
+    let viewPostName=req.body['element'];
+    fs.readFile(__dirname+'/PostsFile/'+viewPostName+'post.txt','utf-8',(err,data)=>{
+        if (err) throw err;
+        res.render('view-post.ejs',{ page: 'view-post',name:viewPostName,message:data});
+    })
 })
 
 app.listen(port,()=>{
